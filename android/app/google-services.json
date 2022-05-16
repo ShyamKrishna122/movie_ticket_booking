@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "165341330521",
+    "project_id": "movie-app-51460",
+    "storage_bucket": "movie-app-51460.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165341330521:android:05ec8faf152f95d9be8548",
+        "android_client_info": {
+          "package_name": "com.example.movie_booking_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165341330521-p89m93eb2ocb5ip8b4o4slg2l7iv3g88.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.movie_booking_app",
+            "certificate_hash": "1beb401a053235cc68c25e30d895a06504190775"
+          }
+        },
+        {
+          "client_id": "165341330521-p2q63klqiab1fbr352kllc0q7en5s5fu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCIZxkSOSiWC-p5tP30Z9uOcj3rtCEmrU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "165341330521-p2q63klqiab1fbr352kllc0q7en5s5fu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
