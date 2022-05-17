@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../model/upcomingMovie.dart';
+import '../model/upcoming_movie.dart';
 
 class UpcomingMovieList extends StatelessWidget {
   const UpcomingMovieList({Key? key}) : super(key: key);
@@ -9,11 +9,11 @@ class UpcomingMovieList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Upcoming movies'),
+        title: const Text('Upcoming movies'),
       ),
       body: GridView.builder(
-        padding: EdgeInsets.symmetric(vertical: 12),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        padding: const EdgeInsets.symmetric(vertical: 12),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: 0.7,
           mainAxisSpacing: 20,
@@ -23,7 +23,7 @@ class UpcomingMovieList extends StatelessWidget {
           final movie = UpcomingMovie.upcomingMovies[index];
           return Card(
             elevation: 4,
-            margin: EdgeInsets.fromLTRB(0.0, 4.0, 4.0, 4.0),
+            margin: const EdgeInsets.fromLTRB(0.0, 4.0, 4.0, 4.0),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(4.0),
             ),
@@ -31,16 +31,14 @@ class UpcomingMovieList extends StatelessWidget {
             color: Colors.black87,
             child: Stack(children: <Widget>[
               Container(
-                child: Container(
-                  decoration: BoxDecoration(
-                      image: DecorationImage(image: AssetImage(movie.path))),
-                ),
+                decoration: BoxDecoration(
+                    image: DecorationImage(image: AssetImage(movie.path))),
               ),
               Column(mainAxisAlignment: MainAxisAlignment.end, children: [
                 Container(
                     width: double.infinity,
                     color: Colors.black54,
-                    padding: EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 8.0),
+                    padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 8.0),
                     child: Text(
                       movie.date,
                       maxLines: 5,

@@ -1,16 +1,13 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_booking_app/user_authentication/app/routes/app.routes.dart';
 import 'package:movie_booking_app/user_authentication/core/services/firebase_auth_service.dart';
 import 'package:movie_booking_app/user_authentication/meta/utils/utils.dart';
 import 'package:movie_booking_app/user_authentication/meta/utils/validator.dart';
 import 'package:movie_booking_app/user_authentication/meta/views/home_view.dart';
-import 'package:movie_booking_app/user_authentication/meta/views/pick_city_view.dart';
 import 'package:movie_booking_app/user_authentication/meta/widget/primary_button.dart';
 import 'package:provider/provider.dart';
 
 import '../../app/shared/constants.dart';
-import '../../core/notifiers/user_notifier.dart';
 
 class EmailWidget extends StatefulWidget {
   const EmailWidget({Key? key}) : super(key: key);
@@ -28,8 +25,6 @@ class _EmailWidgetState extends State<EmailWidget> {
   bool isHidden = true;
 
   bool _isLoading = false;
-
-  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<void> saveForm() async {
     final isValid = _formKey.currentState!.validate();
@@ -63,7 +58,7 @@ class _EmailWidgetState extends State<EmailWidget> {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) {
-            return HomeView();
+            return const HomeView();
           },
         ),
       );
@@ -139,7 +134,7 @@ class _EmailWidgetState extends State<EmailWidget> {
               right: kdefaultPadding - 10,
             ),
             child: TextFormField(
-              key: ValueKey("email-field"),
+              key: const ValueKey("email-field"),
               style: const TextStyle(
                 color: Colors.white,
               ),
@@ -180,7 +175,7 @@ class _EmailWidgetState extends State<EmailWidget> {
               right: kdefaultPadding - 10,
             ),
             child: TextFormField(
-              key: ValueKey("password-field"),
+              key: const ValueKey("password-field"),
               style: const TextStyle(
                 color: Colors.white,
               ),
@@ -245,7 +240,7 @@ class _EmailWidgetState extends State<EmailWidget> {
                     right: kdefaultPadding - 10,
                   ),
                   child: PrimaryButton(
-                    key: ValueKey("LoginButton"),
+                    key: const ValueKey("LoginButton"),
                     text: "Log In",
                     press: () async {
                       await saveForm();

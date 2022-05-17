@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:movie_booking_app/booking_tickets/models/ticketModel.dart';
+import 'package:movie_booking_app/booking_tickets/models/ticket_model.dart';
 import 'package:movie_booking_app/booking_tickets/review_screen.dart';
 import 'package:movie_booking_app/booking_tickets/widgets/seat_type.dart';
 
@@ -18,7 +18,7 @@ class ChooseSeatScreen extends StatefulWidget {
 class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
   noOfSeatSelection() {
     return Expanded(
-      child: Container(
+      child: SizedBox(
         // color: Colors.white,
         height: double.maxFinite,
         width: double.maxFinite,
@@ -36,9 +36,10 @@ class _ChooseSeatScreenState extends State<ChooseSeatScreen> {
               ),
               TextButton(
                 onPressed: () {
-                  TicketModel.ticketType =
-                      SeatSelectionController.instance.seatType.value.toString();
-                  print(TicketModel.ticketType);
+                  TicketModel.ticketType = SeatSelectionController
+                      .instance.seatType.value
+                      .toString();
+
                   if (TicketModel.ticketType == "") {
                     ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text("Please select a type")));

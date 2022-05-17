@@ -1,15 +1,13 @@
-import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 
-import '../feed/feedPage.dart';
-import '../model/movieQuizModel.dart';
+import '../feed/feed_page.dart';
+import '../model/movie_quiz_model.dart';
 
 // We use get package for our state management
 
 class QuestionController extends ChangeNotifier {
   // Lets animated our progress bar
 
-  late AnimationController _animationController;
   int _movieIndex = 0;
   setMovieIndex(int i) {
     _movieIndex = i;
@@ -140,17 +138,17 @@ class QuestionController extends ChangeNotifier {
                   child: Text("Score : " +
                       _numOfCorrectAns.toString() +
                       " / " +
-                      ((_movieIndex == 0) ? _questions.length : _questions2.length).toString(),style: TextStyle(fontSize: 25,fontStyle: FontStyle.italic),),
+                      ((_movieIndex == 0) ? _questions.length : _questions2.length).toString(),style: const TextStyle(fontSize: 25,fontStyle: FontStyle.italic),),
                 ),
               ),
               actions: [
                 ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(builder: (context) => FeedPage()),
+                          MaterialPageRoute(builder: (context) => const FeedPage()),
                           (route) => false);
                     },
-                    child: Text('OK'))
+                    child: const Text('OK'))
               ],
             );
           });

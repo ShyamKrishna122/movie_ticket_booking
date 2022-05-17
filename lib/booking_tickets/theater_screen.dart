@@ -4,19 +4,26 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:movie_booking_app/booking_tickets/validator.dart';
 import 'package:movie_booking_app/booking_tickets/widgets/seat_selection_controller.dart';
+import 'package:movie_booking_app/user_authentication/app/shared/constants.dart';
 import 'choose_seat_screen.dart';
 import 'consts/const.dart';
-import 'models/dateModel.dart';
-import 'models/ticketModel.dart';
+import 'models/date_model.dart';
+import 'models/ticket_model.dart';
 import 'widgets/no_of_seats.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class TheaterScreen extends StatefulWidget {
   static const routeName = "/theater-screen";
 
-  const TheaterScreen({Key? key}) : super(key: key);
+  final String movieName;
+  final String photoUrl;
+
+  const TheaterScreen({
+    Key? key,
+    required this.movieName,
+    required this.photoUrl,
+  }) : super(key: key);
 
   @override
   _TheaterScreenState createState() => _TheaterScreenState();
@@ -37,30 +44,30 @@ class _TheaterScreenState extends State<TheaterScreen> {
   @override
   void didChangeDependencies() async {
     if (isInit) {
-      TicketModel.movieName = "Bad Boy";
+      TicketModel.movieName = widget.movieName;
+      TicketModel.photoUrl = widget.photoUrl;
       FirebaseDatabase database = FirebaseDatabase.instance;
       DataSnapshot dataSnapshot = await database
           .ref('Movies/' + TicketModel.movieName + "/Theaters")
           .get();
 
-      if(Validator.dateValidator(dataSnapshot.child("startDate").value.toString())
-      && Validator.dateValidator(dataSnapshot.child("endDate").value.toString())){
-        var startDate =
-        DateTime.parse(dataSnapshot.child("startDate").value.toString());
-        var endDate =
-        DateTime.parse(dataSnapshot.child("endDate").value.toString());
-        var currentDate =
-        DateTime.now().isBefore(startDate) ? startDate : DateTime.now();
-        while (!currentDate.isAfter(endDate)) {
-          dateModels.add(DateModel(currentDate,
-              DateFormat("EEEE").format(currentDate).substring(0, 3), false));
-          currentDate =
-              DateTime(currentDate.year, currentDate.month, currentDate.day + 1);
-        }
+      // if (Validator.dateValidator(
+      //         dataSnapshot.child("startDate").value.toString()) &&
+      //     Validator.dateValidator(
+      //         dataSnapshot.child("endDate").value.toString())) {
+      var startDate =
+          DateTime.parse(dataSnapshot.child("startDate").value.toString());
+      var endDate =
+          DateTime.parse(dataSnapshot.child("endDate").value.toString());
+      var currentDate =
+          DateTime.now().isBefore(startDate) ? startDate : DateTime.now();
+      while (!currentDate.isAfter(endDate)) {
+        dateModels.add(DateModel(currentDate,
+            DateFormat("EEEE").format(currentDate).substring(0, 3), false));
+        currentDate =
+            DateTime(currentDate.year, currentDate.month, currentDate.day + 1);
       }
-
-
-
+      // }
 
       var ignoreKeys = ["startDate", "endDate"];
       Map<String, Color> colorMap = {
@@ -96,15 +103,31 @@ class _TheaterScreenState extends State<TheaterScreen> {
             : Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10, left: 10),
-                    child: Text(
-                      TicketModel.movieName,
-                      style: const TextStyle(
-                          fontSize: 30,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                    ),
+                  Row(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(top: 10),
+                        child: IconButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          icon: const Icon(
+                            Icons.arrow_back_ios,
+                            color: kprimaryColor,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10, left: 10),
+                        child: Text(
+                          TicketModel.movieName,
+                          style: const TextStyle(
+                              fontSize: 30,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(
                     width: double.infinity,
@@ -155,7 +178,7 @@ class NeuTheater extends StatelessWidget {
   final Map<String, Color> times;
   final String theaterName;
 
-  NeuTheater(this.theaterName, this.times);
+  const NeuTheater(this.theaterName, this.times, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -243,14 +266,15 @@ class NeuTheater extends StatelessWidget {
                                               fontWeight: FontWeight.bold),
                                         ),
                                         Text(
-                                          DateFormat("MMMMd").format(TicketModel.date) +
+                                          DateFormat("MMMMd")
+                                                  .format(TicketModel.date) +
                                               ", " +
                                               TicketModel.time,
                                           style: const TextStyle(
                                               color: Colors.white,
                                               fontSize: 20),
                                         ),
-                                        SizedBox(height: 50),
+                                        const SizedBox(height: 50),
                                         TextButton(
                                           onPressed: () {
                                             TicketModel.tickets =
@@ -311,7 +335,7 @@ class NeuDate extends StatelessWidget {
 
   final bool isElevated;
 
-  NeuDate(this.date, this.day, this.isElevated);
+  const NeuDate(this.date, this.day, this.isElevated, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

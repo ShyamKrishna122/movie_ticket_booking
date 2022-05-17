@@ -22,7 +22,7 @@ class HomeSearch extends StatelessWidget {
                 filled: true,
                 fillColor: white.withOpacity(val),
                 prefixIcon: Icon(
-                  FontAwesomeIcons.search,
+                  FontAwesomeIcons.magnifyingGlass,
                   color: white.withOpacity(0.7),
                   size: 18,
                 ),

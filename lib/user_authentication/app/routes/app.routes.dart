@@ -2,12 +2,11 @@ import 'package:movie_booking_app/booking_tickets/choose_seat_screen.dart';
 import 'package:movie_booking_app/user_authentication/meta/views/authentication/forgot_password_view.dart';
 
 import '../../../booking_tickets/review_screen.dart';
-import '../../../booking_tickets/theater_screen.dart';
-import '../../../movie_buzz/feed/feedDetail.dart';
-import '../../../movie_buzz/feed/feedPage.dart';
-import '../../../movie_buzz/movie-quiz/movieNameSelect.dart';
-import '../../../movie_buzz/movie-quiz/movieQuiz.dart';
-import '../../../movie_buzz/upcoming_movies/upcomingMoviesList.dart';
+import '../../../movie_buzz/feed/feed_detail.dart';
+import '../../../movie_buzz/feed/feed_page.dart';
+import '../../../movie_buzz/movie-quiz/movie_name_select.dart';
+import '../../../movie_buzz/movie-quiz/movie_quiz.dart';
+import '../../../movie_buzz/upcoming_movies/upcoming_movies_list.dart';
 import '../../../streams/screens/movie_details_screen.dart';
 import '../../meta/views/authentication/login_view.dart';
 import '../../meta/views/authentication/signup_view.dart';
@@ -21,13 +20,12 @@ final routes = {
   loginRoute: (context) => const LoginView(),
   signUpRoute: (context) => const SignUpView(),
   forgotPasswordRoute: (context) => const ForgotPasswordView(),
-  TheaterScreen.routeName: (ctx) => const TheaterScreen(),
   ChooseSeatScreen.routeName: (ctx) => const ChooseSeatScreen(),
   ReviewScreen.routeName: (ctx) => const ReviewScreen(),
-  MovieDetailsScreen.routeName: (ctx) => MovieDetailsScreen(),
-  'feedPage': (ctx) => FeedPage(),
-  'feedDetail': (ctx) => FeedDetail(),
+  MovieDetailsScreen.routeName: (ctx) => const MovieDetailsScreen(),
+  'feedPage': (ctx) => const FeedPage(),
+  'feedDetail': (ctx) => const FeedDetail(),
   'upcoming': (ctx) => const UpcomingMovieList(),
-  'movieQuiz': (ctx) => MovieQuiz(),
+  'movieQuiz': (ctx) => const MovieQuiz(),
   'movieQuizNamePage': (ctx) => const MovieQuizNamePage(),
 };

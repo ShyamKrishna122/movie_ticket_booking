@@ -1,8 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_booking_app/movie_buzz/feed/feedPage.dart';
-import 'package:movie_booking_app/streams/screens/dashboard_screen.dart';
-import 'package:movie_booking_app/streams/screens/movie_details_screen.dart';
 import 'package:movie_booking_app/user_authentication/app/providers.dart';
 import 'package:movie_booking_app/user_authentication/app/routes/app.routes.dart';
 import 'package:movie_booking_app/user_authentication/app/shared/themes.dart';
@@ -34,7 +31,7 @@ class Lava extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: DeciderView(),
+      home: const DeciderView(),
       routes: routes,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.themeData(),

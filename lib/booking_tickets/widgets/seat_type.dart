@@ -43,7 +43,7 @@ class SeatType extends StatelessWidget {
                               ? Colors.green
                               : const Color(0xffe5e5e5)),
                     ),
-                    child: Container(
+                    child: SizedBox(
                       width: size.width*2/3,
                       child: Column(
                         children: [
@@ -83,7 +83,7 @@ class SeatType extends StatelessWidget {
                                       SeatSelectionController
                                           .instance.seatType.value
                                   ? Colors.white
-                                  : Color(0xff999999),
+                                  : const Color(0xff999999),
                               fontSize: 16,
                             ),
                           ),

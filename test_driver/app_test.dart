@@ -89,7 +89,7 @@ void main() {
     });
     test("create user account", () async {
       await driver!.tap(createEmailField);
-      await driver!.enterText("test123@gmail.com");
+      await driver!.enterText("hari@gmail.com");
       await driver!.tap(createPasswordField);
       await driver!.enterText("shyam@123");
       await driver!.tap(createCOnfirmPasswordField);

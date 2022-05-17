@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_booking_app/movie_buzz/model/movieQuizModel.dart';
+import 'package:movie_booking_app/movie_buzz/model/movie_quiz_model.dart';
 import 'package:provider/provider.dart';
 
 import '../movie-quiz/question_controller.dart';

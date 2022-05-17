@@ -50,7 +50,7 @@ List<MovieModel> movieDataList = [
       reservedSeat: {1: 13, 2: 24, 3: 34, 4: 35, 5: 47, 6: 50, 7: 19},
       price: 75),
   MovieModel(
-      title: 'Army of Thives',
+      title: 'Army of Thieves',
       image: 'assets/images/armyofthieves.jpg',
       ratingNumber: '8.1',
       description:

@@ -3,10 +3,12 @@ import 'package:movie_booking_app/movie_buzz/movie-quiz/question_controller.dart
 import 'package:movie_booking_app/user_authentication/app/shared/constants.dart';
 import 'package:provider/provider.dart';
 
-import '../model/movieQuizModel.dart';
+import '../model/movie_quiz_model.dart';
 import '../model/question_card.dart';
 
 class MovieQuiz extends StatelessWidget {
+  const MovieQuiz({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<QuestionController>(context);
@@ -20,9 +22,6 @@ class MovieQuiz extends StatelessWidget {
         // Fluttter show the back button automatically
         backgroundColor: Colors.transparent,
         elevation: 0,
-        actions: [
-          // ElevatedButton(onPressed:(){},child: Text("Skip")),
-        ],
       ),
       body: Stack(
         children: [
@@ -43,7 +42,7 @@ class MovieQuiz extends StatelessWidget {
                         controller.questionNo.toString() +
                         " / " +
                         movieList.length.toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: kprimaryColor,
                       fontSize: 25,
                       fontStyle: FontStyle.italic,
@@ -51,12 +50,12 @@ class MovieQuiz extends StatelessWidget {
                     ),
                   ),
                 ),
-                Divider(thickness: 1.5),
+                const Divider(thickness: 1.5),
                 SizedBox(height: kDefaultPadding),
                 Expanded(
                   child: PageView.builder(
                     // Block swipe to next qn
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     controller: controller.pageController,
                     // onPageChanged: controller.,
                     itemCount: movieList.length,

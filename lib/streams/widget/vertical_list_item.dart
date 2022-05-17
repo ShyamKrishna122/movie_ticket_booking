@@ -5,7 +5,7 @@ import '../screens/movie_details_screen.dart';
 
 class VerticalListItem extends StatelessWidget {
   final int index;
-  VerticalListItem(this.index);
+  const VerticalListItem(this.index, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class VerticalListItem extends StatelessWidget {
                     height: 150,
                     width: 100,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(5),
                         topLeft: Radius.circular(5),
                       ),
@@ -57,16 +57,16 @@ class VerticalListItem extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         bestMovieList[index].title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
-                      Container(
+                      SizedBox(
                         width: 240,
                         child: Text(
                           bestMovieList[index].description,
@@ -79,7 +79,7 @@ class VerticalListItem extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
       ],

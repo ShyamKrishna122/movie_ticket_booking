@@ -1,6 +1,6 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_booking_app/movie_buzz/feed/feedPage.dart';
+import 'package:movie_booking_app/movie_buzz/feed/feed_page.dart';
 import 'package:movie_booking_app/movie_management/screens/home_screen/tabs/home_tab/home_tab.dart';
 import 'package:movie_booking_app/user_authentication/app/shared/constants.dart';
 import 'package:movie_booking_app/user_authentication/core/notifiers/user_notifier.dart';
@@ -28,7 +28,6 @@ class _HomeViewState extends State<HomeView> {
     Future.delayed(Duration.zero, () async {
       final user =
           Provider.of<FirebaseAuthService>(context, listen: false).user;
-      print(user!.email);
       if (await Provider.of<UserNotifier>(context, listen: false)
               .getUserInfoFromDB(user) ==
           true) {
@@ -37,7 +36,7 @@ class _HomeViewState extends State<HomeView> {
         });
       } else {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => PickCityView(
+          builder: (context) => const PickCityView(
             option: 0,
           ),
         ));
@@ -79,7 +78,7 @@ class _HomeViewState extends State<HomeView> {
               ),
               actions: [
                 IconButton(
-                  key: ValueKey("ProfileButton"),
+                  key: const ValueKey("ProfileButton"),
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const UserSettingsView(),
@@ -93,8 +92,8 @@ class _HomeViewState extends State<HomeView> {
             )
           : AppBar(
             backgroundColor: kprimaryColor,
-              title: ListTile(
-                title: const Text(
+              title: const ListTile(
+                title: Text(
                   "BUZZ",
                   style: TextStyle(
                     fontSize: 16,
@@ -105,7 +104,7 @@ class _HomeViewState extends State<HomeView> {
                 subtitle: Text(
                   "Discover what's trending in entertainment",
                   maxLines: 1,
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.white,
                     fontSize: 15,
                   ),
@@ -116,25 +115,25 @@ class _HomeViewState extends State<HomeView> {
                     onPressed: () {
                       Navigator.of(context).pushNamed('upcoming');
                     },
-                    icon: Icon(Icons.movie)),
+                    icon: const Icon(Icons.movie)),
                 IconButton(
                     onPressed: () {
                       Provider.of<QuestionController>(context, listen: false)
                           .resetQuestionNo();
                       Navigator.of(context).pushNamed('movieQuizNamePage');
                     },
-                    icon: Icon(Icons.quiz)),
+                    icon: const Icon(Icons.quiz)),
               ],
             ),
       body: _isLoading
-          ? CircularProgressIndicator()
+          ? const Center(child: CircularProgressIndicator())
           : _selectedIndex == 0
-              ? HomeTab()
-              : FeedPage(),
+              ? const HomeTab()
+              : const FeedPage(),
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: Colors.white,
         type: BottomNavigationBarType.shifting,
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(EvaIcons.home), label: "home"),
           BottomNavigationBarItem(icon: Icon(EvaIcons.speaker), label: "buzz")
         ],

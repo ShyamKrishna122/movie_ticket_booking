@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_share/flutter_share.dart';
-import 'package:share_plus/share_plus.dart';
 import '../model/feed.dart';
-import '../model/feedDetail.dart';
-import 'bookmarkWidget.dart';
+import '../model/feed_detail.dart';
+import 'book_mark_widget.dart';
 
 class FeedCardWidget extends StatefulWidget {
   FeedCardWidget({Key? key, required this.article}) : super(key: key);
@@ -25,7 +24,7 @@ class _FeedCardWidgetState extends State<FeedCardWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 130,
       child: Card(
         elevation: 3.0,
@@ -36,7 +35,7 @@ class _FeedCardWidgetState extends State<FeedCardWidget> {
             },
             child: Container(
               height: 100,
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 10,
                 vertical: 8,
               ), // margin: EdgeInsets.only(top: 5),
@@ -76,14 +75,14 @@ class _FeedCardWidgetState extends State<FeedCardWidget> {
                                 overflow: TextOverflow.ellipsis,
                               ),
                             ),
-                            SizedBox(width: 10),
+                            const SizedBox(width: 10),
                             BookmarkWidget(
                               article: widget.article,
-                              color: Theme.of(context).accentColor,
+                              color: Theme.of(context).colorScheme.secondary,
                             ),
                           ],
                         ),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         Expanded(
                             child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -111,29 +110,29 @@ class _FeedCardWidgetState extends State<FeedCardWidget> {
                                     color: Colors.red,
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 5,
                                 ),
                                 Text(
                                   widget.article.rating.toString(),
-                                  style: TextStyle(fontSize: 19),
+                                  style: const TextStyle(fontSize: 19),
                                 ),
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 15,
                             ),
                             GestureDetector(
                               onTap: () async{
                                 await share(widget.article);
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.share,
                                 size: 28,
                                 color: Colors.blueAccent,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                           ],

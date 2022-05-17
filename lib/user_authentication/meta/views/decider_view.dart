@@ -1,16 +1,13 @@
-import 'dart:async';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_booking_app/user_authentication/app/routes/app.routes.dart';
-import 'package:movie_booking_app/user_authentication/core/notifiers/user_notifier.dart';
 import 'package:movie_booking_app/user_authentication/core/services/firebase_auth_service.dart';
 import 'package:movie_booking_app/user_authentication/meta/views/authentication/login_view.dart';
 import 'package:movie_booking_app/user_authentication/meta/views/home_view.dart';
-import 'package:movie_booking_app/user_authentication/meta/views/pick_city_view.dart';
 import 'package:provider/provider.dart';
 
 class DeciderView extends StatelessWidget {
+  const DeciderView({Key? key}) : super(key: key);
+
   // late StreamSubscription<User?>
   //     onAuthChange; //! A stream is declared for listening to an incoming user to the app.
   // //!checks authenticity of user and navigates them to the respective page.
@@ -49,13 +46,13 @@ class DeciderView extends StatelessWidget {
       builder: (context, FirebaseAuthService user, _) {
         switch (user.status) {
           case Status.Uninitialized:
-            return Scaffold(
+            return const Scaffold(
               body: Center(
                 child: CircularProgressIndicator(),
               ),
             );
           case Status.Unauthenticated:
-            return LoginView();
+            return const LoginView();
           case Status.Authenticated:
             return const HomeView();
         }

@@ -4,7 +4,7 @@ import '../screens/movie_details_screen.dart';
 
 class HorizontalListItem extends StatelessWidget {
   final int index;
-  HorizontalListItem(this.index);
+  const HorizontalListItem(this.index, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,12 +44,12 @@ class HorizontalListItem extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Text(
               movieList[index].title,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 16,
                 fontWeight: FontWeight.bold,

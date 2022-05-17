@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../movie-quiz/question_controller.dart';
 
 class Option extends StatelessWidget {
-  const Option(this.option, this.index, this.press, this.ans);
+  const Option(this.option, this.index, this.press, this.ans, {Key? key}) : super(key: key);
   final int index, ans;
   final String option;
   final Function() press;

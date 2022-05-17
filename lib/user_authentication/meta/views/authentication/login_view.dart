@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_booking_app/user_authentication/app/routes/app.routes.dart';
 import 'package:movie_booking_app/user_authentication/app/shared/constants.dart';
@@ -246,20 +245,20 @@ class _LoginViewState extends State<LoginView> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'Not registered yet?',
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: Colors.white,
                     ),
                   ),
                   InkWell(
-                    key: ValueKey("Create"),
+                    key: const ValueKey("Create"),
                     onTap: () {
                       Navigator.of(context).pushReplacementNamed(signUpRoute);
                     },
-                    child: Text(
+                    child: const Text(
                       ' Sign Up',
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: kprimaryColor,
                         fontWeight: FontWeight.bold,
                       ),
@@ -272,9 +271,5 @@ class _LoginViewState extends State<LoginView> {
         ),
       ),
     );
-  }
-
-  void _onTap() {
-    Navigator.of(context).pushReplacementNamed(signUpRoute);
   }
 }

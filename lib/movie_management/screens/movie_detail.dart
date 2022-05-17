@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:movie_booking_app/booking_tickets/theater_screen.dart';
 import 'package:movie_booking_app/movie_management/models/movie_model.dart';
 
+import '../../user_authentication/app/shared/constants.dart';
+import '../../user_authentication/meta/widget/primary_button.dart';
 import '../themes/colors.dart';
 import '../widgets/ratings_and_imdb.dart';
 
@@ -51,7 +54,7 @@ class _MovieDetailState extends State<MovieDetail> {
             ListTile(
               dense: true,
               leading: Icon(
-                FontAwesomeIcons.directions,
+                FontAwesomeIcons.diamondTurnRight,
                 color: white.withOpacity(0.5),
                 size: 17,
               ),
@@ -107,35 +110,53 @@ class _MovieDetailState extends State<MovieDetail> {
                     fontWeight: FontWeight.bold),
               ),
             ),
+            // Container(
+            //   alignment: Alignment.centerLeft,
+            //   margin: const EdgeInsets.only(
+            //       left: 20, right: 20, top: 15, bottom: 10),
+            //   child: Text(
+            //     'Select Date',
+            //     style: TextStyle(
+            //         color: white.withOpacity(0.7),
+            //         fontSize: 17,
+            //         fontWeight: FontWeight.bold),
+            //   ),
+            // ),
+            const SizedBox(
+              height: 20,
+            ),
             Container(
-              alignment: Alignment.centerLeft,
-              margin: const EdgeInsets.only(
-                  left: 20, right: 20, top: 15, bottom: 10),
-              child: Text(
-                'Select Date',
-                style: TextStyle(
-                    color: white.withOpacity(0.7),
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-            SizedBox(
-              height: 100,
-              child: ListView.builder(
-                itemCount: movieDataList[widget.index].weekDays!.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (_, index) {
-                  return GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _position = _position == index ? null : index;
-                        });
-                      },
-                      child: weekdayCard(index, widget.index, _wdColor));
+              margin: const EdgeInsets.all(20),
+              child: PrimaryButton(
+                text: "Book Ticket",
+                press: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => TheaterScreen(
+                      movieName: movieDataList[widget.index].title!,
+                      photoUrl: movieDataList[widget.index].image!,
+                    ),
+                  ));
                 },
-                shrinkWrap: true,
+                color: kprimaryColor,
               ),
             ),
+            // SizedBox(
+            //   height: 100,
+            //   child: ListView.builder(
+            //     itemCount: movieDataList[widget.index].weekDays!.length,
+            //     scrollDirection: Axis.horizontal,
+            //     itemBuilder: (_, index) {
+            //       return GestureDetector(
+            //           onTap: () {
+            //             setState(() {
+            //               _position = _position == index ? null : index;
+            //             });
+            //           },
+            //           child: weekdayCard(index, widget.index, _wdColor));
+            //     },
+            //     shrinkWrap: true,
+            //   ),
+            // ),
           ],
         ),
       ),
@@ -143,7 +164,6 @@ class _MovieDetailState extends State<MovieDetail> {
   }
 
   int? _position;
-  final Color _wdColor = backgroundColor;
 
   Widget weekdayCard(int index, int widgetIndex, Color color) => Container(
         padding: const EdgeInsets.symmetric(vertical: 7),
@@ -154,7 +174,7 @@ class _MovieDetailState extends State<MovieDetail> {
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: white.withOpacity(0.5), width: 0.5),
         ),
-        height: 60,
+        //height: 60,
         width: 50,
         child: Column(
           children: [
@@ -168,9 +188,9 @@ class _MovieDetailState extends State<MovieDetail> {
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
-            const SizedBox(
-              height: 10,
-            ),
+            // const SizedBox(
+            //   height: 10,
+            // ),
             Text(
               movieDataList[widgetIndex].weekDays!.keys.elementAt(index),
               style: TextStyle(

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import '../model/feed.dart';
-import 'feedCardWidget.dart';
+import 'feed_card_widget.dart';
 
 class FeedListViewWidget extends StatefulWidget {
+  const FeedListViewWidget({Key? key}) : super(key: key);
+
   @override
   State<FeedListViewWidget> createState() => _FeedListViewWidgetState();
 }

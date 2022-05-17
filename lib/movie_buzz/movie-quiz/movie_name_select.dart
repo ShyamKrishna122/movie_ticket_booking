@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_booking_app/movie_buzz/movie-quiz/question_controller.dart';
 import 'package:movie_booking_app/user_authentication/app/shared/constants.dart';
@@ -14,7 +13,7 @@ class MovieQuizNamePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kprimaryColor,
-        title: Text('Select One '),
+        title: const Text('Select One '),
       ),
       body: ListView.builder(
         itemBuilder: (ctx, index) {
@@ -28,47 +27,42 @@ class MovieQuizNamePage extends StatelessWidget {
               elevation: 4,
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 35,
                   ),
                   Row(
                     children: [
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Expanded(
-                          child: Container(
-                              child: Image.asset(
+                          child: Image.asset(
                         'assets/' + (11 + index).toString() + '.jpg',
                         fit: BoxFit.fill,
-                      ))),
-                      SizedBox(
+                      )),
+                      const SizedBox(
                         width: 10,
                       ),
                     ],
                   ),
                   Container(
-                    child: Container(
-                      width: double.infinity,
-                      color: Colors.black38,
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 7,
-                          ),
-                          Container(
-                            child: Text(
-                              movie[index],
-                              style: TextStyle(
-                                  fontSize: 25,
-                                  fontStyle: FontStyle.italic,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.red[400]),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 7,
-                          ),
-                        ],
-                      ),
+                    width: double.infinity,
+                    color: Colors.black38,
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 7,
+                        ),
+                        Text(
+                          movie[index],
+                          style: TextStyle(
+                              fontSize: 25,
+                              fontStyle: FontStyle.italic,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.red[400]),
+                        ),
+                        const SizedBox(
+                          height: 7,
+                        ),
+                      ],
                     ),
                   )
                 ],

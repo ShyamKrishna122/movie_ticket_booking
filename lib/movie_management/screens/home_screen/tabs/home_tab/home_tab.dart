@@ -16,7 +16,7 @@ class _HomeTabState extends State<HomeTab> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
+        const SizedBox(
           height: 50,
         ),
         const HomeSearch(),
@@ -30,7 +30,7 @@ class _HomeTabState extends State<HomeTab> {
                 color: white, fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         const HomeMovies()

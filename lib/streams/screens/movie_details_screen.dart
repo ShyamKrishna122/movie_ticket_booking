@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class MovieDetailsScreen extends StatelessWidget {
   static const routeName = '/movie-details';
 
+  const MovieDetailsScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final routeArgs =
@@ -11,10 +13,10 @@ class MovieDetailsScreen extends StatelessWidget {
     final rating = routeArgs['rating'];
 
     return Scaffold(
-      backgroundColor: Color(0xfff4f4f4),
+      backgroundColor: const Color(0xfff4f4f4),
       appBar: AppBar(
         // title: Text('Movie Details'),
-        backgroundColor: Color(0xfff4f4f4),
+        backgroundColor: const Color(0xfff4f4f4),
         elevation: 0,
         iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
       ),
@@ -46,19 +48,19 @@ class MovieDetailsScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
               routeArgs['title'].toString(),
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 2.5,
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
@@ -78,12 +80,12 @@ class MovieDetailsScreen extends StatelessWidget {
                           size: 45,
                           color: Theme.of(context).primaryColor,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Text(
                           routeArgs['duration'].toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 14, fontWeight: FontWeight.bold),
                         ),
                       ],
@@ -104,12 +106,12 @@ class MovieDetailsScreen extends StatelessWidget {
                           size: 45,
                           color: Theme.of(context).primaryColor,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Text(
                           routeArgs['year'].toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 14, fontWeight: FontWeight.bold),
                         ),
                       ],
@@ -130,12 +132,12 @@ class MovieDetailsScreen extends StatelessWidget {
                           size: 45,
                           color: Theme.of(context).primaryColor,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Text(
                           '$rating/10',
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 14, fontWeight: FontWeight.bold),
                         ),
                       ],
@@ -144,12 +146,12 @@ class MovieDetailsScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+           const  SizedBox(
               height: 20,
             ),
             Text(
               routeArgs['description'].toString(),
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 height: 1.5,
               ),
@@ -171,7 +173,7 @@ class MovieDetailsScreen extends StatelessWidget {
               textColor: Colors.white,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
+                children: const <Widget>[
                   Icon(
                     Icons.play_circle_outline,
                   ),
@@ -196,11 +198,11 @@ class MovieDetailsScreen extends StatelessWidget {
               textColor: Colors.black,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
+                children: const <Widget>[
                   Icon(
                     Icons.check_circle_outline,
                   ),
-                  Container(
+                  SizedBox(
                     height: 5,
                     width: 5,
                   ),

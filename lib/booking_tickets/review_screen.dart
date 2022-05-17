@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:movie_booking_app/booking_tickets/models/ticketModel.dart';
+import 'package:movie_booking_app/booking_tickets/models/ticket_model.dart';
+import 'package:movie_booking_app/user_authentication/meta/utils/utils.dart';
+import 'package:movie_booking_app/user_authentication/meta/views/home_view.dart';
 
 class ReviewScreen extends StatelessWidget {
   static const routeName = "/reviewscreen";
@@ -12,14 +14,14 @@ class ReviewScreen extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           height: size.height,
           width: size.width,
           child: Stack(
             children: [
               Center(
-                child: Container(
-                  height: size.height * 2 / 3,
+                child: SizedBox(
+                  height: size.height * 3 / 4,
                   width: size.width * 4 / 5,
                   child: Card(
                     elevation: 10,
@@ -28,8 +30,11 @@ class ReviewScreen extends StatelessWidget {
                         Container(
                           color: Colors.blueGrey,
                           width: double.infinity,
-                          height: size.height / 4,
-                          // child: ,
+                          height: size.height / 3,
+                          child: Image.asset(
+                            TicketModel.photoUrl,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                         const SizedBox(height: 20),
                         Expanded(
@@ -123,11 +128,16 @@ class ReviewScreen extends StatelessWidget {
               Positioned(
                 child: TextButton(
                   onPressed: () {
-
+                    Utils.snackBar(message: "Ticket Booked", context: context);
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                          builder: (context) => const HomeView(),
+                        ),
+                        (route) => false);
                   },
                   child: Container(
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 10),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                         color: Theme.of(context).primaryColor),

@@ -50,7 +50,7 @@ class _TicketTabState extends State<TicketTab> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(right: 10),
+                padding: const EdgeInsets.only(right: 10),
                 height: 200,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
@@ -78,7 +78,7 @@ class _TicketTabState extends State<TicketTab> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(right: 10),
+                padding: const EdgeInsets.only(right: 10),
                 child: ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
@@ -148,7 +148,7 @@ class _TicketTabState extends State<TicketTab> {
                           width: 130,
                           child: Text(
                             title,
-                            style: TextStyle(fontSize: 18, color: white),
+                            style: const TextStyle(fontSize: 18, color: white),
                           ),
                         ),
                         starRatings(ratings),
@@ -156,7 +156,7 @@ class _TicketTabState extends State<TicketTab> {
                           width: 120,
                           child: Text(
                             director,
-                            style: TextStyle(fontSize: 15, color: white),
+                            style: const TextStyle(fontSize: 15, color: white),
                           ),
                         )
                       ],

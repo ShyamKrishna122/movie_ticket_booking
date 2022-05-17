@@ -1,5 +1,4 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_booking_app/movie_management/screens/home_screen/tabs/ticket_tab/ticket_tab.dart';
 import 'package:movie_booking_app/streams/screens/dashboard_screen.dart';
@@ -28,7 +27,7 @@ class UserSettingsView extends StatelessWidget {
             ),
           ),
           subtitle: InkWell(
-            key: ValueKey("EditProfileView"),
+            key: const ValueKey("EditProfileView"),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => const EditProfileView(),
@@ -49,14 +48,14 @@ class UserSettingsView extends StatelessWidget {
           ListTile(
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => TicketTab(),
+                builder: (context) => const TicketTab(),
               ));
             },
-            leading: Icon(
+            leading: const Icon(
               EvaIcons.shoppingBag,
               color: Colors.white,
             ),
-            title: Text(
+            title: const Text(
               "Purchase History",
               style: TextStyle(
                 color: Colors.white,
@@ -68,7 +67,7 @@ class UserSettingsView extends StatelessWidget {
                 color: Colors.grey.shade500,
               ),
             ),
-            trailing: Icon(
+            trailing: const Icon(
               Icons.arrow_forward_ios_rounded,
               color: Colors.white,
             ),
@@ -76,14 +75,14 @@ class UserSettingsView extends StatelessWidget {
           ListTile(
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => DashboardScreen(),
+                builder: (context) => const DashboardScreen(),
               ));
             },
-            leading: Icon(
+            leading: const Icon(
               EvaIcons.tv,
               color: Colors.white,
             ),
-            title: Text(
+            title: const Text(
               "Stream Library",
               style: TextStyle(
                 color: Colors.white,
@@ -95,7 +94,7 @@ class UserSettingsView extends StatelessWidget {
                 color: Colors.grey.shade500,
               ),
             ),
-            trailing: Icon(
+            trailing: const Icon(
               Icons.arrow_forward_ios_rounded,
               color: Colors.white,
             ),
@@ -104,7 +103,7 @@ class UserSettingsView extends StatelessWidget {
           Container(
             margin: const EdgeInsets.all(20),
             child: PrimaryButton(
-              key: ValueKey("SignOutButton"),
+              key: const ValueKey("SignOutButton"),
               text: "Sign Out",
               press: () async {
                 await user.userSignOut();

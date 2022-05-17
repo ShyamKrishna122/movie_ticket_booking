@@ -8,16 +8,18 @@ import '../widget/vertical_list_item.dart';
 import '../widget/horizontal_list_item.dart';
 
 class DashboardScreen extends StatelessWidget {
+  const DashboardScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kcanvasColor,
       appBar: AppBar(
         backgroundColor: kprimaryColor,
-        title: Text('Movies App'),
+        title: const Text('Movies App'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
             onPressed: () {},
           ),
         ],
@@ -30,7 +32,7 @@ class DashboardScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
+                  const Text(
                     'Recommended',
                     style: TextStyle(
                       color: Colors.white,
@@ -40,13 +42,13 @@ class DashboardScreen extends StatelessWidget {
                   ),
                   FlatButton(
                     textColor: Colors.white,
-                    child: Text('View All'),
+                    child: const Text('View All'),
                     onPressed: () {},
                   ),
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               height: 280,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -54,7 +56,7 @@ class DashboardScreen extends StatelessWidget {
                 itemBuilder: (ctx, i) => HorizontalListItem(i),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Padding(
@@ -62,7 +64,7 @@ class DashboardScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
+                  const Text(
                     'Best of 2019',
                     style: TextStyle(
                       color: Colors.white,
@@ -72,7 +74,7 @@ class DashboardScreen extends StatelessWidget {
                   ),
                   FlatButton(
                     textColor: Colors.white,
-                    child: Text(
+                    child: const Text(
                       'View All',
                       style: TextStyle(
                         color: Colors.white,
@@ -87,12 +89,12 @@ class DashboardScreen extends StatelessWidget {
               height: 500,
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: bestMovieList.length,
                 itemBuilder: (ctx, i) => VerticalListItem(i),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Padding(
@@ -100,7 +102,7 @@ class DashboardScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(
+                  const Text(
                     'Top Rated Movies',
                     style: TextStyle(
                       color: Colors.white,
@@ -110,13 +112,13 @@ class DashboardScreen extends StatelessWidget {
                   ),
                   FlatButton(
                     textColor: Colors.white,
-                    child: Text('View All'),
+                    child: const Text('View All'),
                     onPressed: () {},
                   ),
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               height: 280,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,

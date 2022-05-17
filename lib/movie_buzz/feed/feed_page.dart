@@ -1,15 +1,11 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:movie_booking_app/user_authentication/app/shared/constants.dart';
-import 'package:provider/provider.dart';
-import '../movie-quiz/question_controller.dart';
-import 'feedDetail.dart';
-import '../model/feed.dart';
-import 'feedListViewWidget.dart';
+import 'feed_list_widget.dart';
 
 class FeedPage extends StatefulWidget {
   final String title = 'Movie Feeds';
+
+  const FeedPage({Key? key}) : super(key: key);
 
   @override
   _FeedPageState createState() => _FeedPageState();
@@ -24,9 +20,9 @@ class _FeedPageState extends State<FeedPage> {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
+            children: const <Widget>[
               Padding(
-                padding: const EdgeInsets.only(top: 20.0),
+                padding: EdgeInsets.only(top: 20.0),
                 child: Text('Trending Movie Feeds',
                     style: TextStyle(
                       color: kprimaryColor,

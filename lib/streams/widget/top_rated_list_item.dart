@@ -5,7 +5,7 @@ import '../screens/movie_details_screen.dart';
 
 class TopRatedListItem extends StatelessWidget {
   final int index;
-  TopRatedListItem(this.index);
+  const TopRatedListItem(this.index, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +45,12 @@ class TopRatedListItem extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Text(
               topRatedMovieList[index].title,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 16,
                 fontWeight: FontWeight.bold,

@@ -51,8 +51,6 @@ class _SignUpEmailWidgetState extends State<SignUpEmailWidget> {
     super.initState();
   }
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-
   Future<void> saveForm() async {
     final isValid = _formKey.currentState!.validate();
 
@@ -167,7 +165,7 @@ class _SignUpEmailWidgetState extends State<SignUpEmailWidget> {
               right: kdefaultPadding - 10,
             ),
             child: TextFormField(
-              key: ValueKey("CreateEmailField"),
+              key: const ValueKey("CreateEmailField"),
               style: const TextStyle(
                 color: Colors.white,
               ),
@@ -205,7 +203,7 @@ class _SignUpEmailWidgetState extends State<SignUpEmailWidget> {
               right: kdefaultPadding - 10,
             ),
             child: TextFormField(
-              key: ValueKey("CreatePasswordField"),
+              key: const ValueKey("CreatePasswordField"),
               validator: pwdValidator,
               style: const TextStyle(
                 color: Colors.white,
@@ -259,7 +257,7 @@ class _SignUpEmailWidgetState extends State<SignUpEmailWidget> {
               right: kdefaultPadding - 10,
             ),
             child: TextFormField(
-              key: ValueKey("CreateConfirmPasswordField"),
+              key: const ValueKey("CreateConfirmPasswordField"),
               validator: pwdValidator,
               style: const TextStyle(
                 color: Colors.white,
@@ -293,7 +291,7 @@ class _SignUpEmailWidgetState extends State<SignUpEmailWidget> {
               right: kdefaultPadding - 10,
             ),
             child: PrimaryButton(
-              key: ValueKey("SignupButton"),
+              key: const ValueKey("SignupButton"),
               text: "Sign Up",
               press: () async {
                 await saveForm();

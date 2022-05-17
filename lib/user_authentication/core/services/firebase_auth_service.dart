@@ -43,10 +43,8 @@ class FirebaseAuthService extends ChangeNotifier {
       changeState(Status.Authenticated);
       _status = Status.Authenticated;
       notifyListeners();
-      print(_status);
       return true;
     } on FirebaseAuthException catch (e) {
-      print(e);
       changeState(Status.Unauthenticated);
       _status = Status.Unauthenticated;
       _error = e.code;
